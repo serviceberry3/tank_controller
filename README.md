@@ -1,0 +1,2 @@
+Controller code for SZDoit robot tank chassis over WiFi, using ESP8266-01 module. Code in onboard-ctl/esp-websock/esp-websock.ino should be flashed onto the ESP-01; it will host a webpage at it's IP that clients can use to open up a WebSocket (using arduinoWebSockets) for communication with the module.  
+Code in onboard-ctl/duino-code/duino_code.ino should be flashed onto an Arduino Uno which is hooked up to an L298 or similar for driving the motors.
