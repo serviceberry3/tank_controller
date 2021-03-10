@@ -36,33 +36,25 @@ String html_1 = R"=====(
     {
       Socket = new WebSocket('ws://' + window.location.hostname + ':81/');
     }
+
+    //get all of the control buttons from the HTML doc
+    var fwd_btn = document.getElementById('BTN_FWD');
+    var bkd_btn = document.getElementById('BTN_BKD');
+    var lt_btn = document.getElementById('BTN_LT');
+    var rt_btn = document.getElementById('BTN_RT');
+    var stp_btn = document.getElementById('BTN_STP');
    
-    document.getElementById('BTN_FWD').addEventListener('click', function() { command('0'); });
-    document.getElementById('BTN_BKD').addEventListener('click', function() { command('1'); });
-    document.getElementById('BTN_LT').addEventListener('click', function() { command('2'); });
-    document.getElementById('BTN_RT').addEventListener('click', function() { command('3'); });
-    document.getElementById('BTN_STP').addEventListener('click', function() { command('4'); });
+    //add appropriate event listeners so that proper ctls sent on button down and release
+    fwd_btn.addEventListener('mousedown', function() { command('0'); });
+    bkd_btn.addEventListener('mousedown', function() { command('1'); });
+    lt_btn.addEventListener('mousedown', function() { command('2'); });
+    rt_btn.addEventListener('mousedown', function() { command('3'); });
+    fwd_btn.addEventListener('mouseup', function() { command('4'); });
+    bkd_btn.addEventListener('mouseup', function() { command('4'); });
+    lt_btn.addEventListener('mouseup', function() { command('4'); });
+    rt_btn.addEventListener('mouseup', function() { command('4'); });
+    stp_btn.addEventListener('click', function() { command('4'); });
     
-    
-    function forward()
-    {   
-      /*
-      var btn = document.getElementById('BTN_LED')
-      var btnText = btn.textContent || btn.innerText;
-      
-      if (btnText ==='Turn on the LED') 
-      { 
-        btn.innerHTML = "Turn off the LED"; 
-        document.getElementById('LED_status').innerHTML = 'LED is on';  
-        sendText('1'); 
-      }  
-      else { 
-        btn.innerHTML = "Turn on the LED";  
-        document.getElementById('LED_status').innerHTML = 'LED is off'; 
-        sendText('0'); 
-      }*/
-      sendText('0');
-    }
 
     function command(data) {
       sendText(data);
