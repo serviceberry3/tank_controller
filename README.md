@@ -7,15 +7,15 @@ You need to change ```ssid[]``` and ```pass[]``` variables in esp-websock.ino to
 # Flashing the ESP #
 Flahing the ESP through the Arduino Uno is tricky. Follow these steps:
 * In the Arduino IDE, select "Generic ESP-01 Module" as the board.
-* Plug the Uno into the computer and selet appropriate port in the IDE.
+* Plug the Uno into the computer and select appropriate port in the IDE.
 * Swap the TX and RX jumper cables on the Uno.
 * Connect RESET to GND on the Uno.
 * Connect ESP GPIO0 pin to Arduino GND.
 * Hit "Upload" in the IDE.
-* You should see "Connecting..." or something similar. At this point, you need to pull the RESET pin of the ESP-01 to Ardunio GND for a second.
+* You should see "Connecting..." or something similar. At this point, you need to pull the RESET pin of the ESP-01 to Arduino GND for a second.
 * Now you should see the code uploading.
 * After you see "Hard reset...", pull the ESP's RESET pin to GND again to start running the code.
 * Undo all of the connections/switches you made above.
 
 # Known issues #
-* It's often difficult to get the ESP to connect to Wifi for some reason. While it tries to connect, you'll here a clicking noise and see the blue LED flash occasionally. In esp-websock.ino, it's only given a certain period of time to connect, otherwise it goes into an infinite idling loop. If you can't get it to connect on the first try, just keep restarting it and it should connect after a few tries, at which point the controller webpage will be served.
+* It's often difficult to get the ESP to connect to Wi-fi for some reason. While it tries to connect, you'll hear a clicking noise and see the blue LED flash occasionally. In esp-websock.ino, it's only given a certain period of time to connect, otherwise it goes into an infinite idling loop. If you can't get it to connect on the first try, just keep restarting it, and it should connect after a few tries, at which point the controller webpage will be served.
