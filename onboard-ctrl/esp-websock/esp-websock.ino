@@ -19,7 +19,6 @@ String html_1 = R"=====(
     <div id='main'>
       <h3>TANK CONTROL</h3>
       <div id='content'>
-        <p id='LED_status'>Use a direction and then 'stop' to move</p>
         <button id='BTN_FWD' class="button">Forward</button>
         <button id='BTN_BKD' class="button">Backward</button>
         <button id='BTN_LT' class="button">Left</button>
@@ -105,10 +104,10 @@ void setup()
  
   // connection with timeout
   int count = 0; 
-  while ( (WiFi.status() != WL_CONNECTED) && count < 34) 
+  while ((WiFi.status() != WL_CONNECTED) && count < 68) 
   {
       //print loading symbol
-      //Serial.print(".");  
+      //Serial.println("Trying to connect");  
       delay(500);  
       count++;
   }
@@ -116,18 +115,21 @@ void setup()
   //if connection can't be est in ~16 sec, time out and enter infinite loop
   if (WiFi.status() != WL_CONNECTED)
   { 
-     //Serial.println(""); 
-     //Serial.print("Failed to connect to ");  
-     //Serial.println(ssid);
+     /*
+     Serial.println(""); 
+     Serial.print("Failed to connect to ");  
+     Serial.println(ssid);
+     Serial.println("Entering infinite loop");*/
      while(1);
   }
 
   //otherwise we connected successfully
-  //Serial.println("");
-  //Serial.println(F("[CONNECTED]"));   
-  //Serial.print("[IP ");  
-  //Serial.print(WiFi.localIP()); 
-  //Serial.println("]");
+  /*
+  Serial.println("");
+  Serial.println(F("[CONNECTED]"));   
+  Serial.print("[IP ");  
+  Serial.print(WiFi.localIP()); 
+  Serial.println("]");*/
  
   //start a Wifi server
   server.begin();
